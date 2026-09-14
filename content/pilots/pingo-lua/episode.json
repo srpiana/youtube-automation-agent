@@ -1,0 +1,59 @@
+{
+  "id": "pingo-lua-001",
+  "title": "Pingo e o Segredo da Lua",
+  "language": "pt-BR",
+  "audience": "kids",
+  "madeForKids": true,
+  "privacyStatus": "private",
+  "containsSyntheticMedia": true,
+  "durationSeconds": 60,
+  "aspectRatio": "16:9",
+  "videoProvider": "slideshow",
+  "subtitles": true,
+  "thumbnail": true,
+  "narrationMode": "single_narrator",
+  "visualStyle": "colorful soft 3D animation, original recurring character, warm cinematic lighting, rounded friendly shapes, no copyrighted characters, consistent character design",
+  "character": {
+    "name": "Pingo",
+    "description": "small original fluffy forest creature with rounded ears, large expressive eyes, soft teal-blue fur, cream belly, tiny paws, curious and gentle personality"
+  },
+  "scenes": [
+    {
+      "start": 0,
+      "end": 10,
+      "narration": "Pingo era um bichinho muito curioso. Mas, quando o Sol ia embora, ele corria para debaixo do cobertor. Escuro? Nem pensar!",
+      "imagePrompt": "Pingo in a cozy little bedroom at sunset, looking worried as daylight fades, warm lamp, blanket nearby, friendly colorful soft 3D animation, cinematic 16:9, original character, no text"
+    },
+    {
+      "start": 10,
+      "end": 20,
+      "narration": "Numa noite, uma luz prateada entrou pela janela. Pingo espiou devagar e perguntou: Quem acendeu aquela enorme lâmpada no céu?",
+      "imagePrompt": "Pingo peeking from under a blanket toward an open window, silver moonlight entering the room, enormous bright moon outside, expression changing from fear to curiosity, soft 3D animation, cinematic 16:9, no text"
+    },
+    {
+      "start": 20,
+      "end": 30,
+      "narration": "Era a Lua! Mas havia um segredo: ela não produzia sua própria luz. Então, de onde vinha aquele brilho?",
+      "imagePrompt": "Pingo at the window gazing at the moon, magical educational composition suggesting a mystery, moon large in the sky, stars, gentle night colors, colorful soft 3D animation, cinematic 16:9, no text"
+    },
+    {
+      "start": 30,
+      "end": 40,
+      "narration": "A luz do Sol viajava pelo espaço, batia na Lua e voltava até nossos olhos. Parecia até um enorme espelho!",
+      "imagePrompt": "simple child-friendly educational space scene showing sunlight traveling from the Sun to the Moon and reflected toward Pingo on Earth, visually clear light beams, whimsical accurate concept, soft 3D animation, cinematic 16:9, no text labels"
+    },
+    {
+      "start": 40,
+      "end": 50,
+      "narration": "Pingo olhou novamente para o quarto. As sombras ainda estavam ali, mas agora o céu parecia muito menos assustador.",
+      "imagePrompt": "Pingo standing calmly in the same cozy bedroom at night, moonlight illuminating soft shadows, relaxed smile, brave curious posture, consistent character and room, colorful soft 3D animation, cinematic 16:9, no text"
+    },
+    {
+      "start": 50,
+      "end": 60,
+      "narration": "Naquela noite, Pingo aprendeu duas coisas: por que a Lua brilha e que conhecer nossos medos pode fazê-los parecer bem menores. E você? Já olhou para a Lua hoje?",
+      "imagePrompt": "Pingo happily sitting by the window looking at a huge glowing moon and starry sky, peaceful triumphant ending, sense of wonder and discovery, consistent character, colorful soft 3D animation, cinematic 16:9, no text"
+    }
+  ],
+  "thumbnailPrompt": "close-up of Pingo looking amazed at a huge glowing moon, strong expressive eyes, starry night, high contrast composition, colorful soft 3D animation, clean background, 16:9 YouTube thumbnail, no text"
+}
