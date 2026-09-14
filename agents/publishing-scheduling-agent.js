@@ -79,6 +79,9 @@ class PublishingSchedulingAgent {
           captions: productionData.assets.captions,
           privacyStatus: productionData.privacyStatus || process.env.DEFAULT_PRIVACY_STATUS || 'private',
           containsSyntheticMedia: productionData.containsSyntheticMedia === true,
+          madeForKids: productionData.madeForKids === true ||
+            (productionData.madeForKids !== false &&
+              String(process.env.YOUTUBE_MADE_FOR_KIDS || 'false').toLowerCase() === 'true'),
           contentType: productionData.contentType || 'long_form',
           sourceProductionId: productionData.sourceProductionId || productionData.id,
           shortClipId: productionData.shortClipId || null
@@ -217,7 +220,7 @@ class PublishingSchedulingAgent {
       status: {
         privacyStatus: metadata.privacyStatus || process.env.DEFAULT_PRIVACY_STATUS || 'private',
         publishAt: scheduleEntry.publishTime,
-        selfDeclaredMadeForKids: false,
+        selfDeclaredMadeForKids: metadata.madeForKids === true,
         containsSyntheticMedia: metadata.containsSyntheticMedia === true
       }
     };
