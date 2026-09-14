@@ -1,0 +1,51 @@
+name: Apply configurable kids audience fix
+
+on:
+  push:
+    branches:
+      - fix/configurable-made-for-kids
+
+permissions:
+  contents: write
+
+jobs:
+  patch-and-test:
+    if: ${{ !contains(github.event.head_commit.message, 'apply configurable kids audience logic') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/configurable-made-for-kids
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+      - name: Patch publishing audience logic
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('agents/publishing-scheduling-agent.js')
+          s = p.read_text()
+          old_meta = "          containsSyntheticMedia: productionData.containsSyntheticMedia === true,\n          contentType: productionData.contentType || 'long_form',"
+          new_meta = "          containsSyntheticMedia: productionData.containsSyntheticMedia === true,\n          madeForKids: productionData.madeForKids === true ||\n            (productionData.madeForKids !== false &&\n              String(process.env.YOUTUBE_MADE_FOR_KIDS || 'false').toLowerCase() === 'true'),\n          contentType: productionData.contentType || 'long_form',"
+          old_upload = "        selfDeclaredMadeForKids: false,"
+          new_upload = "        selfDeclaredMadeForKids: metadata.madeForKids === true,"
+          if old_meta not in s:
+              raise SystemExit('metadata insertion point not found')
+          if old_upload not in s:
+              raise SystemExit('upload audience insertion point not found')
+          s = s.replace(old_meta, new_meta, 1).replace(old_upload, new_upload, 1)
+          p.write_text(s)
+          PY
+      - name: Install dependencies
+        run: npm ci
+      - name: Run tests
+        run: npm test
+      - name: Commit tested fix and remove one-shot workflow
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/apply-kids-audience-fix.yml
+          git add agents/publishing-scheduling-agent.js .env.example
+          git commit -m "fix: apply configurable kids audience logic"
+          git push origin HEAD:fix/configurable-made-for-kids
